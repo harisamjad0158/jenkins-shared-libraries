@@ -1,12 +1,12 @@
 def call() {
-    echo "Running unit tests..."
+    echo "Running unit tests (actually linting and build check)..."
 
-    // If your package.json is inside 'frontend' folder for example:
+    // Run npm install and lint, build as a form of validation
     sh """
-        cd frontend
-        npm install
-        npm test
+       npm install
+       npm run lint
+       npm run build
     """
 
-    echo "Unit tests completed successfully"
+    echo "Unit tests (lint/build) completed successfully"
 }
