@@ -1,9 +1,17 @@
 def call() {
     echo "Running unit tests..."
-    
-    // Add your unit test commands here
-    // For example:
-    // sh "npm test" or "mvn test" depending on your project
-    
-    echo "Unit tests completed successfully"
+
+    try {
+        // Replace this with your actual test command
+        // For Node.js projects:
+        sh 'npm test'
+
+        // For Maven projects, use instead:
+        // sh 'mvn test'
+
+        echo "Unit tests completed successfully"
+    } catch (err) {
+        echo "Unit tests failed!"
+        error("Failing the build because tests failed")
+    }
 }
